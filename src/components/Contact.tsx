@@ -36,7 +36,8 @@ export function Contact() {
     setIsSubmitting(true);
     try {
       // Use FormSubmit.co to send the email directly without opening a mail client
-      const response = await fetch("https://formsubmit.co/ajax/sudha.satpathy22@gmail.com", {
+      const formSubmitEmail = process.env.NEXT_PUBLIC_FORM_SUBMIT_EMAIL || "fallback@example.com";
+      const response = await fetch(`https://formsubmit.co/ajax/${formSubmitEmail}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +49,7 @@ export function Contact() {
           company: data.company || "Not provided",
           message: data.message,
           _subject: `New Portfolio Message from ${data.name}`,
-          _cc: "sudhasatpathy1222@gmail.com",
+          _cc: process.env.NEXT_PUBLIC_FORM_SUBMIT_CC || "",
           _template: "table" // Uses a nice table format for the email
         }),
       });
@@ -176,7 +177,7 @@ export function Contact() {
               </div>
 
               <a 
-                href="https://wa.me/916370366998"
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full h-11 flex items-center justify-center gap-2 bg-white text-green-600 border border-green-200 hover:bg-green-50 hover:border-green-300 font-medium rounded-lg transition-all active:scale-[0.98] shadow-sm"

@@ -35,7 +35,7 @@ export function Footer() {
               <FaLinkedin className="w-5 h-5" />
             </a>
             <a 
-              href="mailto:contact@sudhasatpathy.com" 
+              href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@example.com"}`} 
               className="text-slate-400 hover:text-red-500 transition-colors"
               aria-label="Email"
             >
