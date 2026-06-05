@@ -34,7 +34,21 @@ export function Skills() {
         align="center"
       />
       
-      <div className="max-w-5xl mx-auto mt-16 px-4">
+      <div className="max-w-5xl mx-auto mt-10 md:mt-12 mb-12 md:mb-16 px-4">
+        <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-4">
+          <div className="bg-blue-500/5 hover:bg-blue-500/10 transition-colors py-3 md:py-4 px-4 md:px-6 rounded-xl md:rounded-2xl border border-slate-200/50 flex-1 flex items-center justify-center text-center">
+            <span className="text-sm md:text-base font-bold text-blue-600">Software Developer</span>
+          </div>
+          <div className="bg-blue-500/5 hover:bg-blue-500/10 transition-colors py-3 md:py-4 px-4 md:px-6 rounded-xl md:rounded-2xl border border-slate-200/50 flex-1 flex items-center justify-center text-center">
+            <span className="text-sm md:text-base font-bold text-blue-600">Full Stack Web Developer</span>
+          </div>
+          <div className="bg-blue-500/5 hover:bg-blue-500/10 transition-colors py-3 md:py-4 px-4 md:px-6 rounded-xl md:rounded-2xl border border-slate-200/50 flex-1 flex items-center justify-center text-center">
+            <span className="text-sm md:text-base font-bold text-blue-600">Dynamics 365 Technical Consultant</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-5xl mx-auto mt-8 px-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
           {technologies.map((tech, index) => (
             <motion.div

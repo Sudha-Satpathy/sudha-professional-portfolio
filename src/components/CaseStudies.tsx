@@ -63,7 +63,7 @@ function FlipCaseStudyCard({ study, index }: { study: typeof caseStudies[0], ind
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative h-[600px] w-full [perspective:1000px]"
+      className="group relative h-[400px] md:h-[420px] w-full [perspective:1000px]"
     >
       <motion.div
         className="w-full h-full relative [transform-style:preserve-3d]"
@@ -71,17 +71,17 @@ function FlipCaseStudyCard({ study, index }: { study: typeof caseStudies[0], ind
         transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
       >
         <div className={cn(
-          `absolute inset-0 [backface-visibility:hidden] glass-card rounded-[3rem] p-8 md:p-10 flex flex-col items-center text-center border border-slate-200/60 dark:border-slate-800/60 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500/30 transition-all duration-500 bg-blue-500/5 dark:bg-blue-500/10 group`,
+          `absolute inset-0 [backface-visibility:hidden] glass-card rounded-2xl md:rounded-3xl p-5 md:p-6 flex flex-col items-center text-center border border-slate-200/60 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500/30 transition-all duration-500 bg-blue-500/5 group`,
           study.glow
         )}>
-          <div className={`flex items-center justify-center mb-8 text-blue-600 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-500`}>
+          <div className={`flex items-center justify-center mb-4 md:mb-5 text-blue-600 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-500`}>
             {study.icon}
           </div>
           
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-orange-500 transition-colors duration-300">{study.title}</h3>
-          <p className="text-sm font-bold uppercase tracking-wider text-blue-600 mb-6">{study.tagline}</p>
+          <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-1 group-hover:text-orange-500 transition-colors duration-300">{study.title}</h3>
+          <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-blue-600 mb-3 md:mb-4">{study.tagline}</p>
           
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 flex-grow">
+          <p className="text-xs md:text-sm text-slate-600 leading-[1.6] md:leading-relaxed mb-4 flex-grow">
             {study.problem}
           </p>
           
@@ -97,38 +97,38 @@ function FlipCaseStudyCard({ study, index }: { study: typeof caseStudies[0], ind
 
         {/* Back Face */}
         <div className={cn(
-          `absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] glass-card rounded-[3rem] p-8 flex flex-col border border-slate-200/60 dark:border-slate-800/60 shadow-xl bg-blue-500/5 dark:bg-blue-500/10`,
+          `absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] glass-card rounded-2xl md:rounded-3xl p-5 md:p-6 flex flex-col border border-slate-200/60 shadow-xl bg-blue-500/5`,
           study.glow
         )}>
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-200/50 dark:border-slate-800/50">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white">{study.title}</h3>
+          <div className="flex justify-between items-center mb-4 md:mb-5 pb-3 border-b border-slate-200/50">
+            <h3 className="text-lg md:text-xl font-bold text-slate-900">{study.title}</h3>
             <button 
               onClick={() => setIsFlipped(false)} 
-              className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
+              className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition-colors"
             >
               <ArrowLeft size={16} />
             </button>
           </div>
           
-          <div className="overflow-y-auto flex-grow space-y-6 pr-2">
+          <div className="overflow-y-auto flex-grow space-y-3 md:space-y-4 pr-2">
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-green-600 dark:text-green-400 mb-2">The Solution</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{study.solution}</p>
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-green-600 mb-1">The Solution</h4>
+              <p className="text-xs md:text-sm text-slate-600 leading-relaxed">{study.solution}</p>
             </div>
             
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Architecture</h4>
-              <p className="text-xs font-mono text-slate-700 dark:text-slate-300 bg-slate-100/80 dark:bg-slate-800/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Architecture</h4>
+              <p className="text-[10px] md:text-[11px] font-mono text-slate-700 bg-slate-100/80 p-2 rounded-lg border border-slate-200">
                 {study.architecture}
               </p>
             </div>
             
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-3">Measurable Impact</h4>
-              <ul className="space-y-3">
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-blue-600 mb-1">Measurable Impact</h4>
+              <ul className="space-y-1 md:space-y-2">
                 {study.impact.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-slate-700">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />
                     <span className="leading-snug">{item}</span>
                   </li>
                 ))}
@@ -136,10 +136,10 @@ function FlipCaseStudyCard({ study, index }: { study: typeof caseStudies[0], ind
             </div>
           </div>
           
-          <div className="mt-4 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-slate-200/50">
             <button 
               onClick={() => setIsFlipped(false)}
-              className="w-full py-3 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold text-sm hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors flex justify-center items-center gap-2"
+              className="w-full py-2.5 md:py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-colors flex justify-center items-center gap-2"
             >
               <ArrowLeft size={16} /> Back
             </button>

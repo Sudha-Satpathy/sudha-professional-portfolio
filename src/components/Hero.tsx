@@ -71,7 +71,7 @@ function Counter({ end, suffix = "", label, duration = 2, icon, bgClass = "" }: 
 export function Hero() {
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 pb-12">
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-12 pb-8">
       <div className="container relative z-10 px-4 md:px-6 mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
@@ -86,14 +86,6 @@ export function Hero() {
                 Sudha Satpathy
               </h1>
 
-              <div className="inline-flex items-center text-sm md:text-base font-bold text-orange-500 flex-wrap justify-center lg:justify-start gap-y-2 mt-2">
-                Software Developer
-                <span className="hidden sm:inline-block mx-3 h-1.5 w-1.5 rounded-full bg-orange-500"></span>
-                Fullstack Web Developer
-                <span className="hidden sm:inline-block mx-3 h-1.5 w-1.5 rounded-full bg-orange-500"></span>
-                Microsoft Dynamics 365 Technical Consultant
-              </div>
-              
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed mt-4">
                 Building scalable web applications, enterprise ERP solutions, and automated workflows.
               </h2>

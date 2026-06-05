@@ -8,84 +8,85 @@ const experiences = [
     role: "Software Developer & Instructor",
     company: "NxtWave",
     period: "Mar 2025 – Present",
-    description: "Developing workflow automation solutions and web applications using React.js, APIs, and modern tools. Building AI-powered applications including content automation, news summarization, and conversational assistants. Delivering technical training programs on MERN Stack.",
-    skills: ["React.js", "AI Automation", "Full Stack", "MERN Stack"],
+    description: "Developing workflow automation solutions and web applications using React.js. Building AI-powered applications.",
+    skills: ["React.js", "AI Automation", "Full Stack"],
   },
   {
-    role: "Technical Trainer – MERN Stack",
+    role: "Technical Trainer – MERN",
     company: "DataValley India Pvt. Ltd.",
     period: "Aug 2024 – Oct 2024",
-    description: "Delivered hands-on training on React.js, Node.js, Express.js, MongoDB, and JavaScript development. Conducted practical sessions on REST APIs, database integration, and deployment workflows.",
-    skills: ["React.js", "Node.js", "MongoDB", "Technical Training"],
+    description: "Delivered hands-on training on React.js, Node.js, Express.js, MongoDB, and JavaScript development.",
+    skills: ["React.js", "Node.js", "MongoDB"],
   },
   {
-    role: "Freelance Full Stack Developer",
+    role: "Full Stack Developer",
     company: "TeachersNaukri",
     period: "Feb 2024 – Jul 2024",
-    description: "Developed and deployed a job portal platform connecting educational institutions with teaching professionals. Built frontend interfaces and backend APIs for job posting, candidate management, and recruitment workflows.",
-    skills: ["Full Stack", "Frontend", "Backend APIs", "Stakeholder Collaboration"],
+    description: "Developed and deployed a job portal platform connecting educational institutions with teaching professionals.",
+    skills: ["Frontend", "Backend APIs"],
   },
   {
-    role: "Microsoft Dynamics 365 Technical Consultant",
+    role: "Dynamics 365 Consultant",
     company: "Unikul Solutions Pvt. Ltd.",
     period: "Feb 2022 – Mar 2023",
-    description: "Worked on Microsoft Dynamics 365 Business Central ERP implementation for Odisha Government supporting 300+ institutions. Configured Sales, Purchase, Inventory, and Master Data modules.",
-    skills: ["MS Dynamics 365", "Business Central", "ERP Configuration", "Business Analysis"],
+    description: "Microsoft Dynamics 365 Business Central ERP implementation for Odisha Government supporting 300+ institutions.",
+    skills: ["MS Dynamics 365", "ERP"],
   }
 ];
 
 export function Experience() {
   return (
-    <Section id="experience" className="bg-transparent">
+    <Section id="experience" className="bg-transparent py-16">
       <SectionHeading 
-        title="Professional Experience" 
+        title="Career Journey" 
         subtitle="A track record of building production-grade software and enterprise solutions."
+        align="center"
       />
       
-      <div className="max-w-4xl mx-auto relative mt-16">
-        {/* Vertical Timeline Line */}
-        <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 transform md:-translate-x-1/2"></div>
-        
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative flex flex-col md:flex-row gap-8 ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Timeline Node */}
-              <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-orange-500 border-4 border-white shadow-sm transform -translate-x-1.5 md:-translate-x-2 mt-1.5 md:mt-0 z-10"></div>
-              
-              <div className="md:w-1/2 pl-8 md:pl-0">
-                <div className={`glass-card p-6 md:p-8 rounded-2xl bg-blue-500/5 dark:bg-blue-500/10 border border-slate-200/60 dark:border-slate-800/60 hover:shadow-2xl hover:shadow-orange-500/20 hover:-translate-y-2 hover:border-orange-500/30 transition-all duration-500 group ${
-                  index % 2 === 0 ? "md:ml-12" : "md:mr-12"
-                }`}>
-                  <div className="flex flex-col gap-1 mb-4">
-                    <span className="text-sm font-bold text-orange-500 tracking-wider uppercase">{exp.period}</span>
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-orange-500 transition-colors duration-300">{exp.role}</h3>
-                    <h4 className="text-lg font-medium text-slate-500">{exp.company}</h4>
+      <div className="max-w-7xl mx-auto mt-16 px-4">
+        <div className="relative">
+          {/* Horizontal Line (Desktop) */}
+          <div className="hidden lg:block absolute top-[2.2rem] left-[10%] right-[10%] h-0.5 bg-slate-200"></div>
+          
+          {/* Vertical Line (Mobile/Tablet) */}
+          <div className="lg:hidden absolute left-[15px] top-4 bottom-4 w-0.5 bg-slate-200"></div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative pl-10 lg:pl-0 group"
+              >
+                {/* Timeline Node */}
+                <div className="absolute left-[3px] lg:left-1/2 lg:-translate-x-1/2 top-1.5 lg:top-[1.9rem] w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_0_4px_white] z-10 transition-transform duration-300 group-hover:scale-150"></div>
+                
+                <div className="flex flex-col h-full lg:text-center">
+                  <div className="lg:h-[2rem] flex flex-col justify-end lg:mb-8">
+                    <span className="text-xs font-bold text-orange-500 tracking-wider uppercase mb-1">{exp.period}</span>
                   </div>
                   
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    {exp.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill) => (
-                      <span key={skill} className="px-3 py-1 bg-white/60 text-slate-600 rounded-full text-xs font-medium border border-slate-200">
-                        {skill}
-                      </span>
-                    ))}
+                  <div className="glass-card p-6 rounded-2xl bg-white/60 border border-slate-200/60 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-2 hover:border-orange-500/30 transition-all duration-300 h-full flex flex-col items-start lg:items-center text-left lg:text-center mt-2 lg:mt-0">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-orange-500 transition-colors mb-1">{exp.role}</h3>
+                    <h4 className="text-sm font-semibold text-slate-500 mb-4">{exp.company}</h4>
+                    <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                      {exp.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mt-auto justify-start lg:justify-center">
+                      {exp.skills.map((skill) => (
+                        <span key={skill} className="px-2 py-1 bg-blue-500/5 text-blue-600 rounded-md text-[10px] font-bold uppercase tracking-wider border border-blue-500/10">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </Section>

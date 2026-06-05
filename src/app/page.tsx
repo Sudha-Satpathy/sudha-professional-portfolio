@@ -18,9 +18,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Services />
-      <Experience />
       <Skills />
+      <Experience />
       <CaseStudies />
       <Projects />
       <Contact />
